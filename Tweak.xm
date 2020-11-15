@@ -12,10 +12,6 @@
 %end
 
 %hook SBControlCenterController
--(void)controlCenterViewController:(id)arg1 wantsHostStatusBarHidden:(bool)arg2 {
-    arg2 = 0;
-    %orig;
-}
 -(unsigned long long)presentingEdge {
     return 1;
 }
@@ -34,8 +30,7 @@
 %end
 
 %hook SpringBoard
-
--(bool)homeScreenSupportsRotation {
+-(bool)homeScreenRotationStyleWantsUIKitRotation {
     return NO;
 }
 %end
